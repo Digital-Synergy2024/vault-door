@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Vault Access</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="custom.css">
+</head>
+<body class="d-flex flex-column justify-content-center align-items-center min-vh-100">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8">
+                <div class="vault-container bg-dark bg-gradient p-4">
+                    <h1 class="text-center vault-title text-white mb-4">Secure Vault Access</h1>
+                    
+                    <div class="text-center mb-3">
+                        <div id="status-message" class="code-display">
+                            ENTER SEQUENCE
+                        </div>
+                    </div>
+                    
+                    <div id="vault-door" class="mb-4">
+                        <!-- Bolts around the vault door -->
+                        <div class="bolt"></div>
+                        <div class="bolt"></div>
+                        <div class="bolt"></div>
+                        <div class="bolt"></div>
+                        <div class="bolt"></div>
+                        <div class="bolt"></div>
+                        <div class="bolt"></div>
+                        <div class="bolt"></div>
+
+                        <svg width="100%" height="100%" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid meet" class="vault-svg">
+                            <!-- Vault door outer frame -->
+                            <circle cx="250" cy="250" r="200" class="vault-outer-circle" />
+                            
+                            <!-- Inner circles -->
+                            <circle cx="250" cy="250" r="180" fill="#374151" stroke="#1f2937" stroke-width="3" />
+                            <circle cx="250" cy="250" r="160" fill="#4b5563" stroke="#374151" stroke-width="2" />
+                            
+                            <!-- Tick marks for numbers -->
+                            <g id="tick-marks">
+                                <!-- 12 major tick marks (every 30 degrees) -->
+                                <line x1="250" y1="100" x2="250" y2="90" transform="rotate(0, 250, 250)" class="major-tick" />
+                                <line x1="250" y1="100" x2="250" y2="90" transform="rotate(30, 250, 250)" class="major-tick" />
+                                <line x1="250" y1="100" x2="250" y2="90" transform="rotate(60, 250, 250)" class="major-tick" />
+                                <line x1="250" y1="100" x2="250" y2="90" transform="rotate(90, 250, 250)" class="major-tick" />
+                                <line x1="250" y1="100" x2="250" y2="90" transform="rotate(120, 250, 250)" class="major-tick" />
+                                <line x1="250" y1="100" x2="250" y2="90" transform="rotate(150, 250, 250)" class="major-tick" />
+                                <line x1="250" y1="100" x2="250" y2="90" transform="rotate(180, 250, 250)" class="major-tick" />
+                                <line x1="250" y1="100" x2="250" y2="90" transform="rotate(210, 250, 250)" class="major-tick" />
+                                <line x1="250" y1="100" x2="250" y2="90" transform="rotate(240, 250, 250)" class="major-tick" />
+                                <line x1="250" y1="100" x2="250" y2="90" transform="rotate(270, 250, 250)" class="major-tick" />
+                                <line x1="250" y1="100" x2="250" y2="90" transform="rotate(300, 250, 250)" class="major-tick" />
+                                <line x1="250" y1="100" x2="250" y2="90" transform="rotate(330, 250, 250)" class="major-tick" />
+                                
+                                <!-- 24 minor tick marks (every 15 degrees, excluding major ticks) -->
+                                <line x1="250" y1="100" x2="250" y2="95" transform="rotate(15, 250, 250)" class="tick-mark" />
+                                <line x1="250" y1="100" x2="250" y2="95" transform="rotate(45, 250, 250)" class="tick-mark" />
+                                <line x1="250" y1="100" x2="250" y2="95" transform="rotate(75, 250, 250)" class="tick-mark" />
+                                <line x1="250" y1="100" x2="250" y2="95" transform="rotate(105, 250, 250)" class="tick-mark" />
+                                <line x1="250" y1="100" x2="250" y2="95" transform="rotate(135, 250, 250)" class="tick-mark" />
+                                <line x1="250" y1="100" x2="250" y2="95" transform="rotate(165, 250, 250)" class="tick-mark" />
+                                <line x1="250" y1="100" x2="250" y2="95" transform="rotate(195, 250, 250)" class="tick-mark" />
+                                <line x1="250" y1="100" x2="250" y2="95" transform="rotate(225, 250, 250)" class="tick-mark" />
+                                <line x1="250" y1="100" x2="250" y2="95" transform="rotate(255, 250, 250)" class="tick-mark" />
+                                <line x1="250" y1="100" x2="250" y2="95" transform="rotate(285, 250, 250)" class="tick-mark" />
+                                <line x1="250" y1="100" x2="250" y2="95" transform="rotate(315, 250, 250)" class="tick-mark" />
+                                <line x1="250" y1="100" x2="250" y2="95" transform="rotate(345, 250, 250)" class="tick-mark" />
+                            </g>
+
+                            <!-- Numbers around the dial -->
+                            <g id="numbers">
+                                <text x="250" y="115" transform="rotate(0, 250, 250)" class="vault-number">0</text>
+                                <text x="250" y="115" transform="rotate(30, 250, 250)" class="vault-number">10</text>
+                                <text x="250" y="115" transform="rotate(60, 250, 250)" class="vault-number">20</text>
+                                <text x="250" y="115" transform="rotate(90, 250, 250)" class="vault-number">30</text>
+                                <text x="250" y="115" transform="rotate(120, 250, 250)" class="vault-number">40</text>
+                                <text x="250" y="115" transform="rotate(150, 250, 250)" class="vault-number">50</text>
+                                <text x="250" y="115" transform="rotate(180, 250, 250)" class="vault-number">60</text>
+                                <text x="250" y="115" transform="rotate(210, 250, 250)" class="vault-number">70</text>
+                                <text x="250" y="115" transform="rotate(240, 250, 250)" class="vault-number">80</text>
+                                <text x="250" y="115" transform="rotate(270, 250, 250)" class="vault-number">90</text>
+                                <text x="250" y="115" transform="rotate(300, 250, 250)" class="vault-number">100</text>
+                                <text x="250" y="115" transform="rotate(330, 250, 250)" class="vault-number">110</text>
+                            </g>
+
+                            <!-- Bar Handles -->
+                            <rect x="240" y="30" width="20" height="50" class="vault-handle" />
+                            <rect x="240" y="420" width="20" height="50" class="vault-handle" />
+                            <rect x="30" y="240" width="50" height="20" class="vault-handle" />
+                            <rect x="420" y="240" width="50" height="20" class="vault-handle" />
+
+                            <!-- Central dial mechanism -->
+                            <circle cx="250" cy="250" r="130" class="vault-inner-circle" />
+                            
+                            <!-- Interactive dial -->
+                            <g id="dial" class="vault-dial" transform="rotate(0, 250, 250)">
+                                <circle cx="250" cy="250" r="60" class="vault-dial-bg" />
+                                <line x1="250" y1="250" x2="250" y2="200" class="vault-dial-indicator" />
+                                <circle cx="250" cy="250" r="10" fill="#ef4444" />
+                            </g>
+                        </svg>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="mb-3">
+                            <div id="code-entry" class="d-flex justify-content-center">
+                                <span class="code-display me-2">CODE: </span>
+                                <span id="code-digits" class="code-display">[ - - - ]</span>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <button id="reset-btn" class="btn btn-outline-danger me-2">Reset</button>
+                            <button id="enter-btn" class="btn btn-success">Enter</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-3 text-white-50">
+                    <small>Rotate dial with mouse wheel and click to select numbers</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Audio Effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+    <!-- Custom JS -->
+    <script src="vaultdoor.js"></script>
+</body>
+</html>

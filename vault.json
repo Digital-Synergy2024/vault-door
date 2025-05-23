@@ -1,0 +1,7 @@
+{
+    "validCode": [30, 60, 90],
+    "securityLevel": "high",
+    "lockoutEnabled": true,
+    "maxAttempts": 5,
+    "lastUpdated": "05/22/2025"
+}
