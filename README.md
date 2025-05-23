@@ -2,7 +2,7 @@
 
 ![Vault Door Preview](vault.png)
 
-![(https://vault.digital-synergy.org/)]
+[https://vault.digital-synergy.org/]
 
 > An interactive web-based vault simulator featuring realistic dial mechanics, satisfying animations, and authentic sound effects. Experience the thrill of cracking a combination lock with this high-fidelity security vault interface built with HTML5, CSS3, and JavaScript.
 
